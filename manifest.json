@@ -1,0 +1,20 @@
+{
+  "name": "নতুন শুরু — অভ্যাস ট্র্যাকার",
+  "short_name": "নতুন শুরু",
+  "description": "অফলাইন অভ্যাস, পানি, নোট ও মাসিক রিপোর্ট ট্র্যাকার",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d1411",
+  "theme_color": "#101714",
+  "lang": "bn",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101714">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>নতুন শুরু — অভ্যাস ট্র্যাকার</title>
+<style>
+:root{--bg:#0d1411;--panel:#151f1a;--panel2:#1b2821;--text:#f3f7f3;--muted:#9baea2;--green:#9be7b1;--green2:#56c982;--line:#2a3a30;--danger:#ff9a9a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1b3025 0,#0d1411 48%);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali","Noto Sans",sans-serif;min-height:100vh}
+.app{max-width:520px;margin:0 auto;padding:22px 17px 40px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.brand{display:flex;gap:11px;align-items:center}.logo{width:43px;height:43px;border-radius:15px;background:linear-gradient(135deg,#b5f5c5,#4bc77e);display:grid;place-items:center;color:#102016;font-size:23px;font-weight:900}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--green);font-weight:800}.brand h1{font-size:20px;margin:2px 0 0}.pill{border:1px solid #345541;border-radius:99px;padding:7px 10px;color:var(--green);font-size:12px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(145deg,#21392b,#17251d 70%);border:1px solid #35533e;border-radius:27px;padding:24px 18px 20px;margin-bottom:17px;box-shadow:0 18px 50px #0003}.hero:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid #ffffff0b;right:-70px;top:-70px;box-shadow:0 0 0 22px #ffffff05,0 0 0 45px #ffffff03}.hero-label{color:#b4cdbb;font-size:13px;display:flex;gap:8px;align-items:center}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}.timer{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:21px 0 16px;position:relative;z-index:1}.timebox{text-align:center;background:#0d171180;border:1px solid #ffffff0d;border-radius:17px;padding:16px 3px 13px}.num{font-size:clamp(29px,8vw,42px);font-weight:800;line-height:1;letter-spacing:-1.5px;font-variant-numeric:tabular-nums}.unit{font-size:12px;color:#b6c9bb;margin-top:9px}.hero-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#c1d5c7;font-size:12px;position:relative;z-index:1}.startdate{max-width:62%;overflow-wrap:anywhere}.reset{background:transparent;color:#c4d7ca;border:1px solid #54745d;border-radius:11px;padding:9px 11px;font:inherit;font-size:12px;cursor:pointer}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}.stat{background:#151f1a;border:1px solid var(--line);border-radius:18px;padding:14px}.stat small{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:23px;margin-top:4px}.section-head{display:flex;justify-content:space-between;align-items:end;margin:23px 2px 12px}.section-head h2{font-size:18px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:4px 0 0}.count{font-size:12px;color:var(--green);background:#243d2c;border-radius:99px;padding:6px 9px}.tasks{display:grid;gap:10px}.task{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:14px 13px;transition:.2s}.task.done{border-color:#427b55;background:#17291e}.check{width:25px;height:25px;border-radius:9px;border:1.5px solid #61796a;background:#0e1711;flex-shrink:0;display:grid;place-items:center;color:#102016;font-weight:900;cursor:pointer}.done .check{background:var(--green);border-color:var(--green)}.tasktext{flex:1;min-width:0}.taskname{font-size:14px;font-weight:700}.taskdesc{font-size:12px;color:var(--muted);margin-top:3px}.done .taskname{text-decoration:line-through;color:#a9c8b2}.taskicon{font-size:20px;width:34px;height:34px;display:grid;place-items:center;background:#23372a;border-radius:12px}.task-delete{border:0;background:transparent;color:#73877a;font-size:19px;padding:5px;cursor:pointer}
+.addtask{width:100%;margin-top:11px;border:1px dashed #45644d;background:#142119;color:var(--green);border-radius:15px;padding:13px;font:inherit;font-weight:700;cursor:pointer}.water-card{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:21px;padding:17px}.water-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.water-top h2{font-size:17px;margin:0}.water-amount{font-size:24px;font-weight:800;color:var(--green);margin-top:10px}.water-track{height:9px;background:#0d1711;border-radius:99px;overflow:hidden;margin:10px 0 13px}.water-fill{height:100%;width:0;background:linear-gradient(90deg,#56c982,#b5f5c5);border-radius:99px;transition:width .2s}.water-actions{display:flex;gap:9px}.water-actions button{flex:1}.goodwork-input{width:100%;background:#0d1711;border:1px solid #304437;border-radius:13px;padding:12px;color:var(--text);font:inherit;font-size:14px;outline:none;margin-top:8px}.report-card{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:21px;padding:17px}.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.report-stat{background:#0d1711;border:1px solid #293b30;border-radius:14px;padding:13px}.report-stat small{color:var(--muted);font-size:12px}.report-stat strong{display:block;font-size:21px;margin-top:5px}.report-list{display:grid;gap:8px;margin-top:14px}.report-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.report-row:last-child{border-bottom:0}.month-select{background:#0d1711;color:var(--text);border:1px solid #304437;border-radius:10px;padding:9px;font:inherit}.report-empty{font-size:13px;color:var(--muted);padding:12px 0}.note-card{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:21px;padding:17px}.note-card h2{font-size:17px;margin:0 0 5px}.note-card p{font-size:12px;color:var(--muted);margin:0 0 13px}.notearea{width:100%;min-height:105px;resize:vertical;background:#0d1711;border:1px solid #304437;border-radius:13px;padding:13px;color:var(--text);font:inherit;font-size:14px;outline:none}.notearea:focus,input:focus{border-color:var(--green2)}.save-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}.saved{font-size:12px;color:var(--muted)}.primary{background:var(--green);border:0;border-radius:12px;color:#102016;padding:10px 15px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}.footer{text-align:center;color:#71877a;font-size:11px;line-height:1.7;padding:24px 12px 0}.modal-back{display:none;position:fixed;inset:0;background:#0009;z-index:5;align-items:center;justify-content:center;padding:20px}.modal-back.show{display:flex}.modal{width:100%;max-width:420px;background:#17231b;border:1px solid #3b5742;border-radius:22px;padding:20px;box-shadow:0 20px 70px #0008}.modal h3{margin:0 0 15px}.field{display:block;margin:12px 0}.field span{display:block;color:#b8cabc;font-size:12px;margin-bottom:7px}.field input{width:100%;padding:12px;background:#0d1711;color:var(--text);border:1px solid #304437;border-radius:11px;font:inherit}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:17px}.secondary{background:transparent;color:#d6e5da;border:1px solid #425b49;border-radius:12px;padding:10px 14px;font:inherit;cursor:pointer}
+@media(min-width:520px){.app{padding-top:30px}.hero{padding:28px 22px 22px}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">↗</div><div><div class="eyebrow">একদিন করে এগিয়ে যাও</div><h1>নতুন শুরু</h1></div></div>
+    <div class="pill">🌱 নিজের যত্ন</div>
+  </header>
+  <section class="hero">
+    <div class="hero-label"><span class="dot"></span> তোমার ধারাবাহিকতা</div>
+    <div class="timer" aria-live="polite">
+      <div class="timebox"><div class="num" id="days">00</div><div class="unit">দিন</div></div>
+      <div class="timebox"><div class="num" id="hours">00</div><div class="unit">ঘণ্টা</div></div>
+      <div class="timebox"><div class="num" id="minutes">00</div><div class="unit">মিনিট</div></div>
+    </div>
+    <div class="hero-foot"><div class="startdate" id="since">শুরু করার সময় সেট করো</div><button class="reset" id="resetBtn">↻ কাউন্ট রিসেট</button></div>
+  </section>
+  <section class="stats">
+    <div class="stat"><small>আজকের টাস্ক সম্পন্ন</small><strong id="doneCount">০ / ৫</strong></div>
+    <div class="stat"><small>আজকের অগ্রগতি</small><strong id="progress">০%</strong></div>
+  </section>
+  <div class="section-head"><div><h2>আজকের ছোট ছোট লক্ষ্য</h2><p>প্রতিদিন একটু ভালো হওয়ার চেষ্টা</p></div><span class="count" id="taskBadge">৫টি টাস্ক</span></div>
+  <section class="tasks" id="tasks"></section>
+  <button class="addtask" id="addBtn">＋ নিজের টাস্ক যোগ করো</button>
+  <section class="water-card">
+    <div class="water-top"><div><h2>💧 আজ কত পানি পান করলে?</h2><div class="taskdesc">প্রাথমিক লক্ষ্য: দিনে ২.৫ লিটার পানীয় পানি</div></div><span class="count">প্রতি ধাপে ২৫০ মি.লি.</span></div>
+    <div class="water-amount"><span id="waterAmount">০</span> <span style="font-size:14px;font-weight:500;color:var(--muted)">/ ২,৫০০ মি.লি.</span></div>
+    <div class="water-track"><div class="water-fill" id="waterFill"></div></div>
+    <div class="water-actions"><button class="primary" id="addWater">＋ ২৫০ মি.লি.</button><button class="secondary" id="undoWater">− ২৫০ মি.লি.</button></div>
+    <p class="taskdesc" style="margin-top:12px">গরম আবহাওয়া বা বেশি ঘাম হলে আরও পানি লাগতে পারে। তৃষ্ণা অনুযায়ী পান করো; জোর করে অতিরিক্ত পানি পান কোরো না।</p>
+  </section>
+  <section class="report-card">
+    <div class="water-top"><div><h2>📊 মাসিক রিপোর্ট</h2><div class="taskdesc">পানি, টাস্ক ও ভালো কাজের মাসভিত্তিক হিসাব</div></div><select class="month-select" id="reportMonth" aria-label="মাস নির্বাচন"></select></div>
+    <div class="report-grid">
+      <div class="report-stat"><small>মোট পানি</small><strong id="monthlyWater">০ লিটার</strong></div>
+      <div class="report-stat"><small>দৈনিক গড় পানি</small><strong id="avgWater">০ লিটার</strong></div>
+      <div class="report-stat"><small>পানি লক্ষ্য পূরণ</small><strong id="waterGoalDays">০ দিন</strong></div>
+      <div class="report-stat"><small>টাস্ক সম্পন্ন</small><strong id="monthlyTasks">০</strong></div>
+    </div>
+    <div class="report-list" id="goodWorkHistory"></div>
+    <p class="taskdesc" style="margin-top:10px">রিপোর্ট এই ফোনের ব্রাউজারে সেভ থাকা দৈনিক তথ্য থেকে তৈরি হবে।</p>
+  </section>
+  <section class="note-card">
+    <h2>🌟 আজকের ভালো কাজ</h2><p>আজ কী ভালো কাজ করলে, এখানে লিখে রাখো।</p>
+    <input class="goodwork-input" id="goodWork" maxlength="180" placeholder="যেমন: একজনকে কাজে সাহায্য করেছি">
+    <div class="save-row"><span class="saved" id="goodWorkStatus">আজকের কাজ লিখে সেভ করো</span><button class="primary" id="saveGoodWork">সেভ করো</button></div>
+  </section>
+  <section class="note-card">
+    <h2>📝 আজকের নোট</h2><p>কেমন লাগছে, কী শিখলে বা কী কারণে গর্ব হচ্ছে—লিখে রাখো।</p>
+    <textarea class="notearea" id="note" placeholder="আজকের ভাবনা এখানে লিখো..."></textarea>
+    <div class="save-row"><span class="saved" id="saveStatus">নোট এই ফোনেই সেভ হবে</span><button class="primary" id="saveNote">নোট সেভ</button></div>
+  </section>
+  <div class="footer">একদিন খারাপ গেলেও তুমি ব্যর্থ নও। আবার শুরু করাই অগ্রগতি।<br>এই অ্যাপের তথ্য তোমার এই ব্রাউজারেই রাখা হয়।</div>
+</main>
+<div class="modal-back" id="modalBack"><div class="modal"><h3 id="modalTitle">নতুন টাস্ক</h3><label class="field"><span>টাস্কের নাম</span><input id="taskInput" maxlength="70" placeholder="যেমন: ১০টি পুশ-আপ"></label><label class="field"><span>ছোট বিবরণ (ঐচ্ছিক)</span><input id="descInput" maxlength="100" placeholder="যেমন: নিজের সামর্থ্য অনুযায়ী"></label><div class="modal-actions"><button class="secondary" id="cancelModal">বাতিল</button><button class="primary" id="confirmTask">টাস্ক যোগ</button></div></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const bn=n=>String(n).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
+const dayKey=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const defaults=[
+ {id:'good',name:'একটি ভালো কাজ করো',desc:'কারও উপকার করো বা ভালো কিছু করো',icon:'💚'},
+ {id:'push',name:'১০টি পুশ-আপ',desc:'নিজের সামর্থ্য অনুযায়ী করো',icon:'💪'},
+ {id:'walk',name:'১০ মিনিট হাঁটো',desc:'শরীর ও মনকে সচল রাখো',icon:'🚶'},
+ {id:'water',name:'পর্যাপ্ত পানি পান করো',desc:'দিনজুড়ে পানি খেতে মনে রেখো',icon:'💧'},
+ {id:'breathe',name:'৫ মিনিট মন শান্ত রাখো',desc:'গভীর শ্বাস নাও, ফোন থেকে বিরতি নাও',icon:'🌿'}
+];
+let start=localStorage.getItem('fresh_start')||new Date().toISOString();
+if(!localStorage.getItem('fresh_start'))localStorage.setItem('fresh_start',start);
+let tasks=JSON.parse(localStorage.getItem('fresh_tasks')||'null')||defaults;
+let completed=JSON.parse(localStorage.getItem('fresh_completed')||'{}');
+let activeDay=dayKey();
+function persist(){localStorage.setItem('fresh_tasks',JSON.stringify(tasks));localStorage.setItem('fresh_completed',JSON.stringify(completed))}
+function tick(){let diff=Math.max(0,Date.now()-new Date(start).getTime());let d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000);$('days').textContent=String(d).padStart(2,'0');$('hours').textContent=String(h).padStart(2,'0');$('minutes').textContent=String(m).padStart(2,'0');$('since').textContent='শুরু: '+new Date(start).toLocaleDateString('bn-BD',{day:'numeric',month:'short',year:'numeric'})}
+function render(){if(activeDay!==dayKey())activeDay=dayKey();const done=completed[activeDay]||[];$('tasks').innerHTML='';tasks.forEach(t=>{const is=done.includes(t.id);const el=document.createElement('article');el.className='task'+(is?' done':'');el.innerHTML=`<button class="check" aria-label="টাস্ক সম্পন্ন">${is?'✓':''}</button><div class="taskicon">${t.icon||'✨'}</div><div class="tasktext"><div class="taskname"></div><div class="taskdesc"></div></div>${t.custom?'<button class="task-delete" aria-label="টাস্ক মুছুন">×</button>':''}`;el.querySelector('.taskname').textContent=t.name;el.querySelector('.taskdesc').textContent=t.desc||'আজকের লক্ষ্য';el.querySelector('.check').onclick=()=>{let a=completed[activeDay]||[];completed[activeDay]=is?a.filter(x=>x!==t.id):[...a,t.id];persist();render()};const del=el.querySelector('.task-delete');if(del)del.onclick=()=>{if(confirm('এই টাস্কটি মুছে ফেলবে?')){tasks=tasks.filter(x=>x.id!==t.id);persist();render()}};$('tasks').appendChild(el)});const n=done.filter(id=>tasks.some(t=>t.id===id)).length,total=tasks.length;$('doneCount').textContent=bn(n)+' / '+bn(total);$('progress').textContent=bn(total?Math.round(n/total*100):0)+'%';$('taskBadge').textContent=bn(total)+'টি টাস্ক';$('note').value=localStorage.getItem('fresh_note_'+activeDay)||'';$('goodWork').value=localStorage.getItem('fresh_goodwork_'+activeDay)||'';renderWater()}
+function openModal(){ $('taskInput').value='';$('descInput').value='';$('modalBack').classList.add('show');setTimeout(()=>$('taskInput').focus(),50)}
+$('addBtn').onclick=openModal;$('cancelModal').onclick=()=>$('modalBack').classList.remove('show');$('modalBack').onclick=e=>{if(e.target===$('modalBack'))$('modalBack').classList.remove('show')};
+$('confirmTask').onclick=()=>{const name=$('taskInput').value.trim();if(!name){$('taskInput').focus();return}tasks.push({id:'custom_'+Date.now(),name,desc:$('descInput').value.trim(),icon:'✨',custom:true});persist();$('modalBack').classList.remove('show');render()};
+function getWater(){return Number(localStorage.getItem('fresh_water_'+dayKey())||0)}
+function renderWater(){const amount=getWater();$('waterAmount').textContent=bn(amount.toLocaleString('en-US'));$('waterFill').style.width=Math.min(100,amount/2500*100)+'%'}
+$('addWater').onclick=()=>{localStorage.setItem('fresh_water_'+dayKey(),String(getWater()+250));renderWater()};
+$('undoWater').onclick=()=>{localStorage.setItem('fresh_water_'+dayKey(),String(Math.max(0,getWater()-250)));renderWater()};
+$('saveGoodWork').onclick=()=>{localStorage.setItem('fresh_goodwork_'+dayKey(),$('goodWork').value.trim());$('goodWorkStatus').textContent='সেভ হয়েছে ✓';renderReport();setTimeout(()=>$('goodWorkStatus').textContent='আজকের কাজ লিখে সেভ করো',2000)};
+$('saveNote').onclick=()=>{localStorage.setItem('fresh_note_'+activeDay,$('note').value);$('saveStatus').textContent='সেভ হয়েছে ✓';setTimeout(()=>$('saveStatus').textContent='নোট এই ফোনেই সেভ হবে',2000)};
+$('resetBtn').onclick=()=>{if(confirm('কাউন্ট নতুন করে শুরু করবে? আগের সময় আর ফিরে পাওয়া যাবে না।')){start=new Date().toISOString();localStorage.setItem('fresh_start',start);tick()}};
+function monthKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')}
+function initMonthPicker(){const sel=$('reportMonth');const now=new Date();const opts=[];for(let i=0;i<18;i++){const d=new Date(now.getFullYear(),now.getMonth()-i,1);opts.push({v:monthKey(d),label:d.toLocaleDateString('bn-BD',{month:'long',year:'numeric'})})}sel.innerHTML='';opts.forEach(o=>{const op=document.createElement('option');op.value=o.v;op.textContent=o.label;sel.appendChild(op)});sel.value=monthKey(now);sel.onchange=renderReport}
+function renderReport(){if(!$('reportMonth').options.length)initMonthPicker();const selected=$('reportMonth').value||monthKey(new Date());const [yy,mm]=selected.split('-').map(Number);const daysInMonth=new Date(yy,mm,0).getDate();let totalWater=0,goalDays=0,taskTotal=0,good=[];for(let day=1;day<=daysInMonth;day++){const key=yy+'-'+String(mm).padStart(2,'0')+'-'+String(day).padStart(2,'0');const water=Number(localStorage.getItem('fresh_water_'+key)||0);totalWater+=water;if(water>=2500)goalDays++;const completedToday=completed[key]||[];taskTotal+=completedToday.filter(id=>tasks.some(t=>t.id===id)).length;const work=localStorage.getItem('fresh_goodwork_'+key)||'';if(work)good.push({day,work})}const elapsed=selected===monthKey(new Date())?new Date().getDate():daysInMonth;$('monthlyWater').textContent=bn((totalWater/1000).toLocaleString('en-US',{maximumFractionDigits:2}))+' লিটার';$('avgWater').textContent=bn((totalWater/Math.max(1,elapsed)/1000).toLocaleString('en-US',{maximumFractionDigits:2}))+' লিটার';$('waterGoalDays').textContent=bn(goalDays)+' দিন';$('monthlyTasks').textContent=bn(taskTotal);const list=$('goodWorkHistory');list.innerHTML='';if(!good.length){list.innerHTML='<div class="report-empty">এই মাসে এখনো কোনো ভালো কাজের রেকর্ড সেভ করা হয়নি।</div>'}else{const title=document.createElement('div');title.className='taskname';title.textContent='🌟 ভালো কাজের রেকর্ড';list.appendChild(title);good.reverse().forEach(item=>{const row=document.createElement('div');row.className='report-row';const date=document.createElement('span');date.textContent=bn(item.day)+' তারিখ';const work=document.createElement('span');work.textContent=item.work;work.style.textAlign='right';row.append(date,work);list.appendChild(row)})}}
+tick();render();renderWater();initMonthPicker();renderReport();setInterval(tick,10000);
+</script>
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+</body></html>
